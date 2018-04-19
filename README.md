@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/keboolaprocessor-filter-files.svg?branch=master)](https://travis-ci.org/keboola/processor-filter-files)
 
-Filters only files matching a given mask. Files are filtered recursively, manifest files are deleted.
+Filters only files matching a given mask. Files are filtered recursively, manifest files are kept.
 
 # Usage
 
@@ -32,7 +32,7 @@ Processor supports these mandatory parameters:
 Source folder structure
 
 ```
-/data/in/tables/myfile.csv
+/data/in/tables/myfile.csv.manifest
 /data/in/tables/slice/myfile.csv
 /data/in/tables/someothermyfile.csv
 ```
@@ -41,6 +41,7 @@ Result structure
 
 ```
 /data/out/tables/myfile.csv
+/data/in/tables/myfile.csv.manifest
 /data/out/tables/slice/myfile.csv
 ```
 

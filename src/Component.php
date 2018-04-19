@@ -34,6 +34,10 @@ class Component extends BaseComponent
         foreach ($finder as $file) {
             $fs->mkdir($this->getDataDir() . "/out/" . $dataFolderName . "/" .  $file->getRelativePath());
             $fs->rename($file->getPathname(), $this->getDataDir() . "/out/" . $dataFolderName . "/" . $file->getRelativePathname());
+            // move manifest file too
+            if ($fs->exists($file->getPathname() . ".manifest")) {
+                $fs->rename($file->getPathname() . ".manifest", $this->getDataDir() . "/out/" . $dataFolderName . "/" . $file->getRelativePathname() . ".manifest");
+            }
         }
     }
 
