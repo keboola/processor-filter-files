@@ -1,4 +1,7 @@
 {
+    "name": "keboola/processor-filter-files",
+    "license": "MIT",
+    "description": "Filters only files matching a given mask. Files are filtered recursively, manifest files are deleted.",
     "require": {
         "PHP": "^7.1",
         "keboola/php-component": "^3.0"
