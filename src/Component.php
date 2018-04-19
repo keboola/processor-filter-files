@@ -38,6 +38,10 @@ class Component extends BaseComponent
             if ($fs->exists($file->getPathname() . ".manifest")) {
                 $fs->rename($file->getPathname() . ".manifest", $this->getDataDir() . "/out/" . $dataFolderName . "/" . $file->getRelativePathname() . ".manifest");
             }
+            // move manifest from parent folder (sliced table)
+            if ($fs->exists($file->getPath() . ".manifest")) {
+                $fs->rename($file->getPath() . ".manifest", $this->getDataDir() . "/out/" . $dataFolderName . "/" . $file->getRelativePath() . ".manifest");
+            }
         }
     }
 
