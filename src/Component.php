@@ -16,14 +16,11 @@ class Component extends BaseComponent
         $this->moveFolder("tables");
     }
 
-    /**
-     * @param $dataFolderName string
-     */
-    private function moveFolder($dataFolderName): void
+    private function moveFolder(string $dataFolderName): void
     {
         $finder = new Finder();
         /**
-         * @var $config Config
+         * @var Config $config
          */
         $config = $this->getConfig();
 
