@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MyComponent;
+namespace Keboola\Processor\FilterFiles;
 
 use Keboola\Component\Config\BaseConfig;
 
