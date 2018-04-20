@@ -34,13 +34,13 @@ class Component extends BaseComponent
         foreach ($finder as $file) {
             $fs->mkdir($this->getDataDir() . "/out/" . $dataFolderName . "/" .  $file->getRelativePath());
             $fs->rename($file->getPathname(), $this->getDataDir() . "/out/" . $dataFolderName . "/" . $file->getRelativePathname());
-            // move manifest file too
-            if ($fs->exists($file->getPathname() . ".manifest")) {
-                $fs->rename($file->getPathname() . ".manifest", $this->getDataDir() . "/out/" . $dataFolderName . "/" . $file->getRelativePathname() . ".manifest");
+            $manifest = $file->getPathname() . ".manifest";
+            if ($fs->exists($manifest)) {
+                $fs->rename($manifest, $this->getDataDir() . "/out/" . $dataFolderName . "/" . $file->getRelativePathname() . ".manifest");
             }
-            // move manifest from parent folder (sliced table)
-            if ($fs->exists($file->getPath() . ".manifest")) {
-                $fs->rename($file->getPath() . ".manifest", $this->getDataDir() . "/out/" . $dataFolderName . "/" . $file->getRelativePath() . ".manifest");
+            $parentFolderManifest = $file->getPath() . ".manifest";
+            if ($fs->exists($parentFolderManifest)) {
+                $fs->rename($parentFolderManifest, $this->getDataDir() . "/out/" . $dataFolderName . "/" . $file->getRelativePath() . ".manifest");
             }
         }
     }
