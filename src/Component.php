@@ -32,23 +32,24 @@ class Component extends BaseComponent
 
         $fs = new Filesystem();
         foreach ($finder as $file) {
-            $fs->mkdir($this->getDataDir() . "/out/" . $dataFolderName . "/" . $file->getRelativePath());
+            $destination = $this->getDataDir() . "/out/" . $dataFolderName . "/";
+            $fs->mkdir($destination . $file->getRelativePath());
             $fs->rename(
                 $file->getPathname(),
-                $this->getDataDir() . "/out/" . $dataFolderName . "/" . $file->getRelativePathname()
+                $destination . $file->getRelativePathname()
             );
             $manifest = $file->getPathname() . ".manifest";
             if ($fs->exists($manifest)) {
                 $fs->rename(
                     $manifest,
-                    $this->getDataDir() . "/out/" . $dataFolderName . "/" . $file->getRelativePathname() . ".manifest"
+                    $destination . $file->getRelativePathname() . ".manifest"
                 );
             }
             $parentFolderManifest = $file->getPath() . ".manifest";
             if ($fs->exists($parentFolderManifest)) {
                 $fs->rename(
                     $parentFolderManifest,
-                    $this->getDataDir() . "/out/" . $dataFolderName . "/" . $file->getRelativePath() . ".manifest"
+                    $destination . $file->getRelativePath() . ".manifest"
                 );
             }
         }
