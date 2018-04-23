@@ -1,6 +1,6 @@
 # processor-filter-files
 
-[![Build Status](https://travis-ci.org/keboolaprocessor-filter-files.svg?branch=master)](https://travis-ci.org/keboola/processor-filter-files)
+[![Build Status](https://travis-ci.org/keboola/processor-filter-files.svg?branch=master)](https://travis-ci.org/keboola/processor-filter-files)
 
 Filters only files matching a given mask. Files are filtered recursively, manifest files are kept.
 
