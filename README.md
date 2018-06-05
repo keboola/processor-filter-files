@@ -51,7 +51,7 @@ Result structure
 ### Sliced tables
 
 Manifests will be transferred also for sliced tables, eg.
-
+```
 {
     "definition": {
         "component": "keboola.processor-filter-files"
@@ -60,7 +60,7 @@ Manifests will be transferred also for sliced tables, eg.
         "mask": "slice1"
     }
 }
-
+```
 Source folder structure
 
 ```
